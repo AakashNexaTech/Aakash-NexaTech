@@ -1,0 +1,90 @@
+.pb-section {
+    padding-bottom: 6rem;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.service-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--primary); /* Matching Why Choose Us design */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.service-card.active:hover {
+    transform: translateX(10px) scale(1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.service-icon {
+    width: 56px;
+    height: 56px;
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.service-icon.icon-mobile {
+    background: rgba(37, 99, 235, 0.12);
+    color: #2563eb;
+}
+
+.service-icon.icon-web {
+    background: rgba(16, 185, 129, 0.12);
+    color: #059669;
+}
+
+.service-icon.icon-mvp {
+    background: rgba(245, 158, 11, 0.14);
+    color: #d97706;
+}
+
+.service-icon.icon-uiux {
+    background: rgba(236, 72, 153, 0.12);
+    color: #db2777;
+}
+
+.service-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.service-card p {
+    color: var(--text-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}

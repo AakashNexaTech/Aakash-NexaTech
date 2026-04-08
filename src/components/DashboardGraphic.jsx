@@ -3,7 +3,7 @@ import './DashboardGraphic.css';
 
 const DashboardGraphic = () => {
     return (
-        <div className="dashboard-graphic">
+        <div className="dashboard-graphic" >
             <div className="window-header">
                 <div className="dots">
                     <span className="dot red"></span>

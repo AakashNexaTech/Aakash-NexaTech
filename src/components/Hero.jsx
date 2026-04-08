@@ -25,13 +25,13 @@ const Hero = () => {
                             Start Your Project
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                         </a>
-                        <a href="" className="btn btn-outline btn-large">
+                        {/* <a href="" className="btn btn-outline btn-large">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 3l14 9-14 9v-18z" /></svg>
                             View Our Work
-                        </a>
+                        </a> */}
                     </div>
 
-                    <div className="hero-stats">
+                    {/* <div className="hero-stats">
                         <div className="stat-item">
                             <h3>50+</h3>
                             <p>Projects Delivered</p>
@@ -46,7 +46,7 @@ const Hero = () => {
                             <h3>24/7</h3>
                             <p>Support Available</p>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="hero-graphic">

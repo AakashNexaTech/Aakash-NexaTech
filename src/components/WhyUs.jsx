@@ -1,5 +1,4 @@
 import React from 'react';
-import './WhyUs.css';
 
 const WhyUs = () => {
     const reasons = [
@@ -31,42 +30,40 @@ const WhyUs = () => {
     ];
 
     return (
-        <section className="why-us section-padding bg-pattern" id="why-us">
-            <div className="container why-container">
-                <div className="why-content reveal-left">
+        <section className="py-20 bg-white" id="why-us">
+            <div className="max-w-7xl mx-auto px-4 md:px-8 grid lg:grid-cols-2 gap-16 items-center">
+                <div className="reveal-left">
                     <div className="badge badge-light">Why Choose Us</div>
-                    <h2 className="section-title text-left">
+                    <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
                         Building Products That <span className="text-gradient">Scale</span>
                     </h2>
-                    <p className="why-description">
+                    <p className="text-lg text-slate-600 mb-6 leading-relaxed">
                         We combine cutting-edge technology with battle-tested methodologies to deliver digital products that not only meet your current needs but are ready for future growth.
                     </p>
-                    <p className="why-description">
+                    <p className="text-lg text-slate-600 mb-8 leading-relaxed">
                         Our team of experienced developers and designers work closely with you to understand your unique challenges and create solutions that drive real business value.
                     </p>
 
-                    <div className="why-stats">
-                        {/* <div className="why-stat-box">
-                            <h3>1+</h3>
-                            <p>Years Experience</p>
-                        </div> */}
-                        <div className="why-stat-box">
-                            <h3>100%</h3>
-                            <p>Code Ownership</p>
+                    <div className="flex gap-8">
+                        <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100 min-w-[160px]">
+                            <h3 className="text-3xl font-extrabold text-primary mb-1">100%</h3>
+                            <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Code Ownership</p>
+                        </div>
+                        <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100 min-w-[160px]">
+                            <h3 className="text-3xl font-extrabold text-emerald-500 mb-1">100%</h3>
+                            <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Happy Clients</p>
                         </div>
                     </div>
                 </div>
 
-                <div className="why-cards">
+                <div className="grid sm:grid-cols-2 gap-4">
                     {reasons.map((item, index) => (
-                        <div className={`why-card reveal-right delay-${(index + 1) * 100}`} key={index}>
-                            <div className="why-icon">
+                        <div className={`p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow reveal-right delay-${(index + 1) * 100} ${index === 0 ? 'sm:col-span-2' : ''}`} key={index}>
+                            <div className="w-12 h-12 rounded-xl bg-blue-50 text-primary flex items-center justify-center mb-4">
                                 {item.icon}
                             </div>
-                            <div className="why-text">
-                                <h4>{item.title}</h4>
-                                <p>{item.desc}</p>
-                            </div>
+                            <h4 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h4>
+                            <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
                         </div>
                     ))}
                 </div>

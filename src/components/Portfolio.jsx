@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './Portfolio.css';
 
 const Portfolio = () => {
     const [filter, setFilter] = useState('All');
@@ -11,37 +10,37 @@ const Portfolio = () => {
             title: "FinTech Mobile App",
             category: "Mobile App",
             tech: "React Native, Node.js",
-            image: "linear-gradient(135deg, #1e3a8a, #3b82f6)"
+            image: "bg-gradient-to-br from-blue-900 to-blue-500"
         },
         {
             title: "E-Commerce Dashboard",
             category: "Admin Dashboard",
             tech: "React, TypeScript",
-            image: "linear-gradient(135deg, #064e3b, #10b981)"
+            image: "bg-gradient-to-br from-emerald-900 to-emerald-500"
         },
         {
             title: "Healthcare Platform",
             category: "Web Platform",
             tech: "Next.js, Python",
-            image: "linear-gradient(135deg, #4c1d95, #8b5cf6)"
+            image: "bg-gradient-to-br from-violet-900 to-violet-500"
         },
         {
             title: "Logistics Admin",
             category: "Admin Dashboard",
             tech: "Vue.js, Firebase",
-            image: "linear-gradient(135deg, #7f1d1d, #ef4444)"
+            image: "bg-gradient-to-br from-red-900 to-red-500"
         },
         {
             title: "Real Estate App UI",
             category: "UI Design",
             tech: "Figma, Framer",
-            image: "linear-gradient(135deg, #78350f, #f59e0b)"
+            image: "bg-gradient-to-br from-amber-900 to-amber-500"
         },
         {
             title: "Social Network App",
             category: "Mobile App",
             tech: "Flutter, Firebase",
-            image: "linear-gradient(135deg, #082f49, #0ea5e9)"
+            image: "bg-gradient-to-br from-sky-900 to-sky-500"
         }
     ];
 
@@ -50,17 +49,20 @@ const Portfolio = () => {
         : projects.filter(p => p.category === filter);
 
     return (
-        <section className="portfolio section-padding" id="portfolio">
-            <div className="container">
-                <div className="section-header reveal">
-                    <h2 className="section-title">Our <span className="text-gradient">Latest Work</span></h2>
+        <section className="py-20 bg-white" id="portfolio">
+            <div className="max-w-7xl mx-auto px-4 md:px-8">
+                <div className="text-center mb-12 reveal">
+                    <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Our <span className="text-gradient">Latest Work</span></h2>
                 </div>
 
-                <div className="portfolio-filters reveal delay-100">
+                <div className="flex flex-wrap justify-center gap-3 mb-16 reveal delay-100">
                     {categories.map((cat, idx) => (
                         <button
                             key={idx}
-                            className={`filter-btn ${filter === cat ? 'active' : ''}`}
+                            className={`px-6 py-2 rounded-full font-semibold transition-all duration-300 border ${filter === cat
+                                    ? 'bg-primary text-white border-primary shadow-lg shadow-primary/25'
+                                    : 'bg-white text-slate-600 border-slate-100 hover:border-primary/30 hover:text-primary'
+                                }`}
                             onClick={() => setFilter(cat)}
                         >
                             {cat}
@@ -68,20 +70,21 @@ const Portfolio = () => {
                     ))}
                 </div>
 
-                <div className="portfolio-grid">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {filteredProjects.map((project, idx) => (
-                        <div className={`portfolio-card reveal delay-${Math.min((idx + 1) * 100, 500)}`} key={idx}>
-                            <div className="portfolio-image" style={{ background: project.image }}>
-                                <div className="portfolio-overlay">
-                                    <button className="btn btn-primary" style={{ borderRadius: '50%', padding: '1rem' }}>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                        <div className={`group bg-white rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden reveal delay-${Math.min((idx + 1) * 100, 500)}`} key={idx}>
+                            <div className={`h-64 relative overflow-hidden ${project.image}`}>
+                                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500"></div>
+                                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-y-10 group-hover:translate-y-0 transition-all duration-500">
+                                    <button className="w-14 h-14 rounded-full bg-white text-primary flex items-center justify-center shadow-xl hover:scale-110 transition-transform">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                                     </button>
                                 </div>
                             </div>
-                            <div className="portfolio-info">
-                                <span className="portfolio-category">{project.category}</span>
-                                <h3>{project.title}</h3>
-                                <p>{project.tech}</p>
+                            <div className="p-8">
+                                <span className="text-xs font-bold text-primary uppercase tracking-widest mb-2 block">{project.category}</span>
+                                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
+                                <p className="text-slate-500 text-sm font-medium">{project.tech}</p>
                             </div>
                         </div>
                     ))}

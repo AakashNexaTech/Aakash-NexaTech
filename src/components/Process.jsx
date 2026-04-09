@@ -1,5 +1,4 @@
 import React from 'react';
-import './Process.css';
 
 const Process = () => {
     const steps = [
@@ -31,19 +30,27 @@ const Process = () => {
     ];
 
     return (
-        <section className="process section-padding" id="process">
-            <div className="container">
-                <div className="section-header reveal">
-                    <h2 className="section-title">Turn Your Idea Into a <span className="text-gradient">Scalable Product</span></h2>
+        <section className="py-20 bg-slate-50/30" id="process">
+            <div className="max-w-7xl mx-auto px-4 md:px-8">
+                <div className="text-center mb-16 reveal">
+                    <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+                        Turn Your Idea Into a <span className="text-gradient">Scalable Product</span>
+                    </h2>
                 </div>
 
-                <div className="process-timeline">
+                <div className="grid md:grid-cols-5 gap-8 relative">
+                    {/* Connection line for desktop */}
+                    <div className="hidden md:block absolute top-12 left-10 right-10 h-0.5 bg-slate-200 -z-10"></div>
+
                     {steps.map((step, index) => (
-                        <div className={`process-step reveal delay-${(index + 1) * 100}`} key={index}>
-                            <div className="step-icon-main">{step.icon}</div>
-                            <h3>{step.title}</h3>
-                            <p>{step.desc}</p>
-                            {index < steps.length - 1 && <div className="step-connector"></div>}
+                        <div className={`flex flex-col items-center text-center reveal delay-${(index + 1) * 100}`} key={index}>
+                            <div className="w-20 h-20 rounded-2xl bg-white border border-slate-100 shadow-sm flex items-center justify-center mb-6 text-primary group hover:scale-110 transition-transform">
+                                <div className="p-4 bg-primary/5 rounded-xl">
+                                    {step.icon}
+                                </div>
+                            </div>
+                            <h3 className="text-xl font-bold text-slate-900 mb-2">{step.title}</h3>
+                            <p className="text-slate-600 text-sm leading-relaxed">{step.desc}</p>
                         </div>
                     ))}
                 </div>

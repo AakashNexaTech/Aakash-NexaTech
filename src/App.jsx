@@ -24,11 +24,26 @@ function App() {
   const location = useLocation();
   useScrollReveal();
 
-  // Handle smooth scrolling when navigating from another page with a hash
+  // Handle smooth scrolling when navigating with a hash or to specific section paths
   React.useEffect(() => {
+    let targetId = '';
+
+    // Check for hash first
     if (location.hash) {
+      targetId = location.hash.replace('#', '');
+    }
+    // Then check for section paths
+    else {
+      const path = location.pathname;
+      if (path === '/services') targetId = 'services';
+      else if (path === '/why-us') targetId = 'why-us';
+      else if (path === '/process') targetId = 'process';
+      else if (path === '/contact-us') targetId = 'contact';
+    }
+
+    if (targetId) {
       setTimeout(() => {
-        const element = document.getElementById(location.hash.replace('#', ''));
+        const element = document.getElementById(targetId);
         if (element) {
           window.scrollTo({
             behavior: 'smooth',
@@ -36,6 +51,9 @@ function App() {
           });
         }
       }, 100);
+    } else if (location.pathname === '/' && !location.hash) {
+      // If home page and no hash, scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }, [location]);
 
@@ -46,6 +64,11 @@ function App() {
       <div className="page-transition" key={location.pathname}>
         <Routes location={location}>
           <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Home />} />
+          <Route path="/why-us" element={<Home />} />
+          <Route path="/process" element={<Home />} />
+          <Route path="/contact-us" element={<Home />} />
+
           <Route path="/blog" element={<Blog />} />
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/faqs" element={<FAQs />} />

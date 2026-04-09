@@ -10,18 +10,23 @@ const FAQs = () => {
     ];
 
     return (
-        <main className="section-padding page-hero page-hero-center">
+        <main className="section-padding bg-grid page-hero page-hero-center">
             <div className="container">
-                <div className="section-header reveal">
+                <div className="reveal">
                     <div className="badge badge-light">Questions Answered</div>
-                    <h1 className="section-title">Frequently Asked <span className="text-gradient">Questions</span></h1>
+                    <h1 className="text-5xl md:text-6xl font-extrabold mb-6">Frequently Asked <span className="text-gradient">Questions</span></h1>
                 </div>
 
-                <div className="faq-list">
+                <div className="max-w-4xl mx-auto mt-20 space-y-6 text-left">
                     {faqs.map((faq, idx) => (
-                        <div className={`why-card faq-card reveal delay-${idx * 100}`} key={idx}>
-                            <h3 style={{ fontSize: '1.25rem', marginBottom: '1rem', color: 'var(--text-dark)' }}>{faq.question}</h3>
-                            <p style={{ color: 'var(--text-body)', lineHeight: '1.6' }}>{faq.answer}</p>
+                        <div className={`p-8 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-all reveal delay-${idx * 100}`} key={idx}>
+                            <h3 className="text-xl font-bold text-slate-900 mb-4 flex items-start gap-4">
+                                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-blue-50 text-primary font-bold text-sm shrink-0">Q</span>
+                                {faq.question}
+                            </h3>
+                            <div className="pl-12">
+                                <p className="text-slate-600 leading-relaxed">{faq.answer}</p>
+                            </div>
                         </div>
                     ))}
                 </div>
